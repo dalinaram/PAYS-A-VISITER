@@ -1,0 +1,75 @@
+
+{
+    "pays": [
+        {
+            "id": 1,
+            "title": "La Polynésie",
+            "description": "Visiter Tahiti et ses îles",
+            "status": "Bientôt",
+            "visited": false
+        },
+        {
+            "id": 2,
+            "title": "Le Vietnam",
+            "description": "Visiter le Vietnam",
+            "status": "Visité",
+            "visited": true
+        },
+        {
+            "id": 3,
+            "title": "La Thailande",
+            "description": "Visiter la Thailande",
+            "status": "Visité",
+            "visited": true
+        },
+        {
+            "id": 4,
+            "title": "Le Japon",
+            "description": "Visiter le Japon",
+            "status": "Non",
+            "visited": false
+        },
+        {
+            "id": 5,
+            "title": "Les Maldives",
+            "description": "Visiter les maldives",
+            "status": "Bientôt",
+            "visited": false
+        },
+        {
+            "id": 6,
+            "title": "Implémenter la logique JavaScript",
+            "description": "Ajouter des fonctionnalités interactives avec JavaScript",
+            "status": "Faible",
+            "visited": false
+        },
+        {
+            "id": 7,
+            "title": "Créer une base de données",
+            "description": "Configurer la base de données pour stocker les informations nécessaires",
+            "status": "Urgent",
+            "visited": false
+        },
+        {
+            "id": 8,
+            "title": "Mettre en place l'authentification",
+            "description": "Permettre aux utilisateurs de s'inscrire et de se connecter",
+            "status": "Normal",
+            "visited": false
+        },
+        {
+            "id": 9,
+            "title": "Déployer l'application en ligne",
+            "description": "Héberger l'application sur un serveur pour qu'elle soit accessible",
+            "status": "Faible",
+            "visited": false
+        },
+        {
+            "id": 10,
+            "title": "Effectuer des tests approfondis",
+            "description": "Vérifier la qualité de l'application et corriger les bugs",
+            "status": "Urgent",
+            "visited": false
+        }
+    ]
+}

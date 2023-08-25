@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY WORLD TOUR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        .logo, footer {
+            text-align: center;
+        }
+        hr {
+            margin-bottom: 2em;
+        }
+        .actions {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .btn {
+            background-color: #fff;
+            padding: .5em;
+        }
+
+        .Non {
+            background-color: rgb(87, 5, 87);
+        }
+
+        .Visité {
+            background-color: green;
+        }
+
+        .Bientôt {
+            background-color: rgb(10, 189, 243);
+        }
+        .Non,
+        .Bientôt,
+        .Visité {
+            color: #fff;
+            text-align: center;
+            border-radius: 2em;
+            font-weight: bold;
+        }
+        button {
+            width: inherit;
+        }
+        .message {
+            background-color: #fff;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            border-radius: 0.5em;
+            padding: 0.15em;
+            margin: auto;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="logo">
+            <img src="/images/LOGO.png" alt="logo">
+        </div>
+        <hr>
+
+        <% if(message) { %>
+            <div class="message">
+                <%= message %>
+            </div>
+            <br>
+        <% } %>
+
+        <div class="container">
+            <form action="/pays/create" method="POST">
+                <div class="grid">
+                    <label for="title">
+                        <input type="text" id="title" name="title" placeholder="Nom du voyage" required>
+                    </label>
+                    <select id="status" name="status" required>
+                        <option value="" selected>Selectionnez l'avancé</option>
+                        <option value="Non">Non</option>
+                        <option value="Bientôt">Bientôt</option>
+                        <option value="Visité">Visité</option>
+                    </select>
+                </div>
+                <label for="description">Description courte du voyage</label>
+                <input type="text" id="description" name="description" placeholder="Voyage souhaité" required>
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Pays</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Visité</th>
+                    <th scope="col">Actions</th>
+                    <th scope="col">Vu</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%if(pays.length){%>
+                    <% pays.forEach(function(task){ %>
+                        <tr>
+                            <td><%= task.title %></td>
+                            <td><%= task.description %></td>
+                            <td>
+                                <p class="<%= task.status %>"><%= task.status %></p>
+                            </td>
+                            <td class="actions">
+                                <a class="btn" href="/pays/delete/<%= task.id %>">
+                                    <img src="https://api.iconify.design/ic:baseline-delete-forever.svg" alt="Supprimer">
+                                </a>
+                            </td>
+                            <td>
+                                <% if(task.visited) { %> 
+                                    <a href="/pays/<%= task.id%>">
+                                        <img src="https://api.iconify.design/icon-park-outline:acceleration.svg" alt="Visité">
+                                    </a>
+                                    
+                                <% } else { %>
+                                    <a href="/pays/<%= task.id%>">
+                                        <img src="https://api.iconify.design/twemoji:crossed-fingers-light-skin-tone.svg" alt="">
+                                    </a>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% }else{ %>
+                    <tr>
+                        <td colspan="5">No pays</td> 
+                    </tr>
+                <% } %>
+            </tbody>
+            
+        </table>
+        <footer>
+            <p>Cours de NodeJS - <a href="https://www.agiliteach.org">Agiliteach</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
