@@ -54,3 +54,4 @@ app.get('/pays/delete/:id', (req, res) => {
     res.redirect('/pays');
 });
 
+module.exports=app
